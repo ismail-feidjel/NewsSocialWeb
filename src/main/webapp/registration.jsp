@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>webtech-signin</title>
+<title>webtech-signup</title>
 
 <!-- Font Icon -->
 <link rel="stylesheet"
@@ -25,7 +25,7 @@
 					<div class="signup-form">
 						<h2 class="form-title">Sign up</h2>
 					
-						<form method="Post" action="register" class="register-form"
+						<form method="Post" action="register" class="register-form" enctype="multipart/form-data"
 							id="register-form">
 							<div class="form-group">
 								<label for="name"><i
@@ -49,6 +49,12 @@
 								<label for="contact"><i class="zmdi zmdi-lock-outline"></i></label>
 								<input type="text" name="contact" id="contact"
 									placeholder="Contact no" />
+							</div>
+							
+							<div class="form-group">
+        					     file name	<input type="text" name="npic"><br>
+								 select your picture <input type="file" name="fpic" /><br>
+           					    
 							</div>
 							<div class="form-group">
 								<input type="checkbox" name="agree-term" id="agree-term"

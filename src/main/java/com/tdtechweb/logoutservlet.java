@@ -1,4 +1,4 @@
-package com.tdtechweb.registration;
+package com.tdtechweb;
 
 import jakarta.servlet.ServletException;
 

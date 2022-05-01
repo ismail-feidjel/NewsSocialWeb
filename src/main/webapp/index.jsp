@@ -58,13 +58,13 @@
                     <div class="left">
                         <a class="profile">
                             <div class="profile-picture">
-                                <img src="images/profile-1.jpg"/>
+                                <img src="images/<%=session.getAttribute("picture")%>" onclick="openFormprofile()"/>
                             </div>
                             
                             <div class="handle">
                                 <h4><%=session.getAttribute("name")%></h4>
                                 <p class="text-muted">
-                                    @<%=session.getAttribute("name")%>
+                                    @<%=session.getAttribute("role")%>
                                 </p>
                             </div>
                         </a>
@@ -176,7 +176,7 @@
 
                         </div>
                         <!--end of side bar------------------->
-                        <a href="" onclick="openForm()">
+                        <a href="#" onclick="openForm()">
                             <button class="btn btn-primary" >
                                 (<%=session.getAttribute("name")%>)
                                     <i class="uil uil-sign-out-alt"></i>
@@ -193,18 +193,18 @@
                                 <form action="#">
                                     <div class="content">
                                         <a href="#" class="profile-picture" onclick="openFormprofile()">
-                                            <img src="images/profile-1.jpg" class="profile-picture" alt="" />
+                                            <img src="images/<%=session.getAttribute("picture")%>" class="profile-picture" alt="profile" />
                                         </a>
                                         <div class="details">
-                                            <p>ISMAIL FEI</p>
+                                            <p><%=session.getAttribute("name")%></p>
                                             <div class="privacy">
                                                 <i class="fas fa-user-friends"></i>
-                                                <span>Admin</span>
+                                                <span> <%=session.getAttribute("role")%></span>
                                                 <i class="fas fa-caret-down"></i>
                                             </div>
                                         </div>
                                     </div>
-                                    <textarea placeholder="What's on your mind, ISMAIL?" spellcheck="false"
+                                    <textarea placeholder="What's on your mind,? " spellcheck="false"
                                         required></textarea>
 
                                     <div class="options">
@@ -652,11 +652,11 @@
 
                 <div class="profile-card js-profile-card">
                     <div class="profile-card__img">
-                        <img src=" images/profile-2.jpg" alt="profile card">
+                        <img src=" images/<%=session.getAttribute("picture")%>" alt="profile ">
                     </div>
 
                     <div class="profile-card__cnt js-profile-cnt">
-                        <div class="profile-card__name">Feidjel Ismail</div>
+                        <div class="profile-card__name"><%=session.getAttribute("name")%></div>
                         <div class="profile-card__txt">Front-end Developer from <strong>Mesopotamia</strong></div>
                         <div class="profile-card-loc">
                             <span class="profile-card-loc__icon">

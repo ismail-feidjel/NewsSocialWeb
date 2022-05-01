@@ -1,4 +1,13 @@
-package com.tdtechweb.registration;
+package com.tdtechweb;
+
+
+import java.beans.Statement;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -8,14 +17,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import com.mysql.cj.protocol.Resultset;
 
 @WebServlet("/login")
 public class Loginservlet extends HttpServlet {
@@ -25,7 +26,7 @@ public class Loginservlet extends HttpServlet {
 
 	
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String uemail =request.getParameter("username");
 		String upwd =request.getParameter("password");
@@ -48,13 +49,25 @@ public class Loginservlet extends HttpServlet {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con =DriverManager.getConnection("jdbc:mysql://localhost:3306/techwebdb","root","");
 			
-			PreparedStatement pst =con.prepareStatement("SELECT * FROM `users` WHERE uemail=? and upass=?");
-		    pst.setString(1, uemail);
-			pst.setString(2, upwd);
+			
+		//	PreparedStatement pst =con.prepareStatement("SELECT * FROM `users` WHERE uemail=? and upass=?");
+		  //  pst.setString(1, uemail);
+			//pst.setString(2, upwd);
+			
+			//sql injection
+			String sql ="SELECT * FROM `users` WHERE uemail='"+uemail+"' and (upass='"+upwd+"')";
+			
+			PreparedStatement pst =con.prepareStatement(sql);
+			
+			
 			
 			ResultSet rs = pst.executeQuery();
 			if (rs.next()) {
+			session.setAttribute("id", rs.getString("id"));
 			session.setAttribute("name", rs.getString("uname"));
+			session.setAttribute("role", rs.getString("grade"));
+			session.setAttribute("picture", rs.getString("picture"));
+			
 			dispatcher=request.getRequestDispatcher("index.jsp");
 			
 			}else {

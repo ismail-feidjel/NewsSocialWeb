@@ -6,16 +6,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aanalyse</title>
+    <title>Analyse</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/style2.css">
 
     <link rel="stylesheet" href="style/style3.css">
 
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+<style type="text/css">
+td a {
+color:green;
+text-decoration: underline;
+cursor: pointer;
+}
+
+
+
+
+
+</style>
+
+
 </head>
 
 <body>
+<input type="hidden" id="status" value="<%=request.getAttribute("status")%>" >
     <nav>
         <div class="container">
             <h2 class="logo">
@@ -173,12 +188,28 @@
 
                 </div>
                 <!--end of side bar-==================== -->
-                <a href="#">
-                    <button class="btn btn-primary" onclick="openForm()">
-                        Signout(<%=session.getAttribute("name")%>)
-                            <i class="uil uil-sign-out-alt"></i>
-                    </button>
-                </a>
+                <a href="#" onclick="openForm()">
+                            <button class="btn btn-primary" >
+                                (<%=session.getAttribute("name")%>)
+                                    <i class="uil uil-sign-out-alt"></i>
+                            </button>
+                        </a>
+                        
+                  
+                        
+                        
+                        
+                        <div id="err" onclick="closeerr()" style="
+                           width: 100%;
+                          color:grey;
+                          font-size:10px;
+                          background:red;
+                          border: 1px solid #000000;
+                          word-wrap: break-word;
+                           ">
+                           <%=request.getAttribute("err") ==null ? "" : request.getAttribute("err")%>
+                       
+                        </div>
             </div>
             <!--middle------------------->
             <div class="middle">
@@ -236,7 +267,11 @@
                         <div class="comunity-cont">
                             <div class="cardHeader">
                                 <h2>COMMUNITY</h2>
-                                <a href="#" class="btn">View All</a>
+                                 <div style="    width: 20rem;    height: 3rem;    display: flex;" class="search-bar">
+            					    <i class="uil uil-search"></i>
+             						   <input type="search" placeholder="Search for creators,news">
+       							     </div>
+                                <a href="#" class="btn">refresh</a>
                             </div>
                             <%@page import="java.sql.DriverManager" %> <%@page import="java.sql.ResultSet" %> <%@page import="java.sql.Statement" %> <%@page import="java.sql.Connection" %>
                             <% String id=request.getParameter("userId"); String driverName="com.mysql.jdbc.Driver" ; String
@@ -249,8 +284,9 @@
                                     <tr>
                                         <td>id</td>
                                         <td>Name</td>
-                                        <td>@username </td>
+                                        <td>@username</td>
                                         <td>grade</td>
+                                        <td>Action</td>
                                         <td>Status</td>
                                     </tr>
                                 </thead>
@@ -264,6 +300,10 @@
                                         <td><%=resultSet.getString("uname")%></td>
                                         <td><%=resultSet.getString("umobile")%></td>
                                         <td><%=resultSet.getString("grade")%></td>
+                                        <td>
+                                        <a href="#" onclick="blockuser(this,'<%=resultSet.getString("id")%>','<%=resultSet.getString("uname")%>')">block</a>
+                                        <a href="#" onclick="deleteuser(this,'<%=resultSet.getString("id")%>','<%=resultSet.getString("uname")%>')">delete</a>
+                                        </td>
                                         <td><span class="status <%=resultSet.getString("statuss")%>"><%=resultSet.getString("statuss")%></span></td>
                                     </tr>
                                     <% } } catch (Exception e) { e.printStackTrace(); } %>
@@ -721,51 +761,80 @@
 
 
     </div>
+    <script type="text/javascript">
+    function openForm() {
+    	Swal.fire({
+    		  title: 'Leave?',
+   	     	  icon: 'warning',
+    		  showCancelButton: true,
+    		  confirmButtonColor: '#3085d6',
+    		  cancelButtonColor: '#d33',
+    		  confirmButtonText: 'Signout!'
+    		}).then((result) => {
+    		  if (result.isConfirmed) {
+    		    Swal.fire('Good bye! ')
+    		    location.href = "logout";
+    		    
+    		  }
+    		})
+    }
+    function deleteuser(element,id,name) {
+    	Swal.fire({
+    		  title: 'delete user : '+id+':['+name+']?',
+   	     	  icon: 'warning',
+    		  showCancelButton: true,
+    		  confirmButtonColor: '#3085d6',
+    		  cancelButtonColor: '#d33',
+    		  confirmButtonText: 'delete!'
+    		}).then((result) => {
+    		  if (result.isConfirmed) {
+    		    Swal.fire('done! ')
+    		    location.href = "<%=request.getContextPath()%>/delete?action=delete&userid=" 
+    		    		+id;
+    		    
+    		  }
+    		})
+    }
+    
     
 
-
-    <!---->
-    <script>
-
-        let loadMoreBtn = document.querySelector('#load-more');
-        let currentItem = 3;
-
-        loadMoreBtn.onclick = () => {
-            let boxes = [...document.querySelectorAll('.container .box-container .box')];
-            for (var i = currentItem; i < currentItem + 3; i++) {
-                boxes[i].style.display = 'inline-block';
-            }
-            currentItem += 3;
-
-            if (currentItem >= boxes.length) {
-                loadMoreBtn.style.display = 'none';
-            }
-        }
-
+    
     </script>
 
 
-
-
-
-
+  
 
 
     <script src="script.js"></script>
 
-   ript src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<link rel="stylesheet" href="alert/dist/sweetalert.css">
-<script type="text/javascript">
-    function openForm() {
-        swal("Are you sure you want to Leave?", {
-            buttons: ["cancel", true],
-        });
-    }
+   
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script type="text/javascript">
+               
+            function blockuser(element,id,name) {
+            	Swal.fire({
+            		  title: 'block user : '+id+':['+name+']?',
+           	     	  icon: 'warning',
+            		  showCancelButton: true,
+            		  confirmButtonColor: '#3085d6',
+            		  cancelButtonColor: '#d33',
+            		  confirmButtonText: 'block !'
+            		}).then((result) => {
+            		  if (result.isConfirmed) {
+            		    Swal.fire('done! ')
+            		    location.href = "<%=request.getContextPath()%>/usersm?action=block&userid=" 
+        		    		+id;
+            		    
+            		    
+            		  }
+            		})
+            }
+                
+             
 
-</script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+            </script>
 
+   
 </body>
 
 </html>
