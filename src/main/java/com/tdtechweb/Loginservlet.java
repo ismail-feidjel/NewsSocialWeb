@@ -50,13 +50,13 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			con =DriverManager.getConnection("jdbc:mysql://localhost:3306/techwebdb","root","");
 			
 			
-		//	PreparedStatement pst =con.prepareStatement("SELECT * FROM `users` WHERE uemail=? and upass=?");
-		  //  pst.setString(1, uemail);
+			//PreparedStatement pst =con.prepareStatement("SELECT * FROM `users` WHERE uemail=? and upass=?");
+		    // pst.setString(1, uemail);
 			//pst.setString(2, upwd);
 			
-			//sql injection
-			String sql ="SELECT * FROM `users` WHERE uemail='"+uemail+"' and (upass='"+upwd+"')";
 			
+			String sql ="SELECT * FROM `users` WHERE uemail='"+uemail+"' and (upass='"+upwd+"')";
+		
 			PreparedStatement pst =con.prepareStatement(sql);
 			
 			
@@ -78,11 +78,21 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		dispatcher.forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
+		
+			request.setAttribute("err",e.getMessage());
+			dispatcher =request.getRequestDispatcher("login.jsp");
+			dispatcher.forward(request, response);
+			return;
 		}finally {
 			try {
 				con.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				
+				request.setAttribute("err",e.getMessage());
+				dispatcher =request.getRequestDispatcher("login.jsp");
+				dispatcher.forward(request, response);
+				return;
 			}
 		}
 	}

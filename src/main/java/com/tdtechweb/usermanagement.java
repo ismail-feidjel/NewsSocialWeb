@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import jakarta.*;
 
@@ -18,11 +19,6 @@ import jakarta.*;
 public class usermanagement extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-       
- 
-    public usermanagement() {
-        super();
-    }
     
 
 
@@ -56,16 +52,42 @@ public class usermanagement extends HttpServlet {
 					dispatcher =request.getRequestDispatcher("Analyses.jsp");
 					dispatcher.forward(request, response);
 			}
+			else if (action.equals("select")) {
+//				String sql ="select * FROM `users` WHERE `users`.`id` ="+id+"";
+				String sql ="select * FROM `users` WHERE `users`.`id` ="+id+"";
+				PreparedStatement pst =con.prepareStatement(sql);
+				ResultSet rs = pst.executeQuery();
+				  
+				if (rs.next()) {
+					request.setAttribute("idsea", rs.getString("id"));
+					request.setAttribute("namesea", rs.getString("uname"));
+					request.setAttribute("rolesea", rs.getString("grade"));
+					request.setAttribute("mobilesea", rs.getString("umobile"));
+					request.setAttribute("statussea", rs.getString("statuss"));
+					request.setAttribute("displaysearch","table");
+					dispatcher=request.getRequestDispatcher("Analyses.jsp");
+					
+					}else {
+						request.setAttribute("err","there is an err or the user not found");
+						dispatcher =request.getRequestDispatcher("Analyses.jsp");
+					}
+				dispatcher.forward(request, response);
+			}
 		
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("err",e.getMessage());
+			dispatcher =request.getRequestDispatcher("Analyses.jsp");
+			dispatcher.forward(request, response);
 			return;
 		}finally {
 			try {
 				con.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				request.setAttribute("err",e.getMessage());
+				dispatcher =request.getRequestDispatcher("Analyses.jsp");
+				dispatcher.forward(request, response);
 				
 			}
 		}

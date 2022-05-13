@@ -55,6 +55,17 @@
 								<input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
 							</div>
 						</form>
+						<div id="err" onclick="closeerr()" style="
+                           width: 100%;
+                          color:grey;
+                          font-size:10px;
+                          background:red;
+                          border: 1px solid #000000;
+                          word-wrap: break-word;
+                           ">
+                           <%=request.getAttribute("err") ==null ? "" : request.getAttribute("err")%>
+                       
+                        </div>
 						<div class="social-login">
 							<span class="social-label">Or login with</span>
 							<ul class="socials">

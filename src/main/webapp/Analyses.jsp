@@ -1,5 +1,12 @@
 <% if(session.getAttribute("name")==null){ response.sendRedirect("login.jsp"); } %>
-    <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %><!DOCTYPE html>
+    <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"
+    errorPage="err.jsp"
+    
+     %>
+    
+    
+    
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -30,6 +37,7 @@ cursor: pointer;
 </head>
 
 <body>
+
 <input type="hidden" id="status" value="<%=request.getAttribute("status")%>" >
     <nav>
         <div class="container">
@@ -265,14 +273,47 @@ cursor: pointer;
                 
                     <div class="details">
                         <div class="comunity-cont">
+                        
                             <div class="cardHeader">
                                 <h2>COMMUNITY</h2>
                                  <div style="    width: 20rem;    height: 3rem;    display: flex;" class="search-bar">
             					    <i class="uil uil-search"></i>
-             						   <input type="search" placeholder="Search for creators,news">
+             						   <input id ="searchid" type="search" name="search" placeholder="enter id for search">
+             						  
        							     </div>
-                                <a href="#" class="btn">refresh</a>
+                                 <a href="#" onclick="selectuser(this)"  class="btn">search</a>  
                             </div>
+                            
+                            
+                             <table style="background: rgb(192, 140, 138);display:none; display:<%=request.getAttribute("displaysearch")%> ">
+                               From search :
+                                <thead>
+                               
+                                    <tr>
+                                        <td>id</td>
+                                        <td>Name</td>
+                                        <td>@username</td>
+                                        <td>grade</td>
+                                        
+                                        <td>Status</td>
+                                    </tr>
+                                </thead>
+                
+                                <tbody>
+                                 <tr>
+                                        <td><%=request.getAttribute("idsea")%></td>
+                                        <td><%=request.getAttribute("namesea")%></td>
+                                        <td><%=request.getAttribute("mobilesea")%></td>
+                                        <td><%=request.getAttribute("rolesea")%></td>
+                                      
+                                        <td><span class="status <%=request.getAttribute("statussea")%>"><%=request.getAttribute("statussea")%></span></td>
+                                    </tr>
+                                
+                                 </tbody>
+                            </table>
+                            
+                            
+                 
                             <%@page import="java.sql.DriverManager" %> <%@page import="java.sql.ResultSet" %> <%@page import="java.sql.Statement" %> <%@page import="java.sql.Connection" %>
                             <% String id=request.getParameter("userId"); String driverName="com.mysql.jdbc.Driver" ; String
                                 connectionUrl="jdbc:mysql://localhost:3306/" ; String dbName="techwebdb" ; String userId="root" ; String
@@ -280,6 +321,7 @@ cursor: pointer;
                                 Connection connection=null; Statement statement=null; ResultSet resultSet=null; %>
                            
                             <table>
+                            All users :
                                 <thead>
                                     <tr>
                                         <td>id</td>
@@ -290,7 +332,6 @@ cursor: pointer;
                                         <td>Status</td>
                                     </tr>
                                 </thead>
-                
                                 <tbody>
                                     <% try{ connection=DriverManager.getConnection(connectionUrl+dbName, userId, password);
                                         statement=connection.createStatement(); String sql="SELECT * FROM users" ; resultSet=statement.executeQuery(sql);
@@ -789,7 +830,7 @@ cursor: pointer;
     		}).then((result) => {
     		  if (result.isConfirmed) {
     		    Swal.fire('done! ')
-    		    location.href = "<%=request.getContextPath()%>/delete?action=delete&userid=" 
+    		    location.href = "<%=request.getContextPath()%>/usersm?action=delete&userid=" 
     		    		+id;
     		    
     		  }
@@ -828,6 +869,12 @@ cursor: pointer;
             		    
             		  }
             		})
+            }
+            function selectuser(element) {
+            	var id = document.getElementById("searchid").value;
+            	  location.href = "<%=request.getContextPath()%>/usersm?action=select&userid=" 
+  		    		+id;
+            
             }
                 
              
