@@ -44,11 +44,7 @@
                             <a href="logout"><i class="uil uil-sign-out-alt"></i>Logout</a>
                         </div>
                     </div>
-
-
-
                 </div>
-
             </nav>
 
             <!--MAIN------------------->
@@ -60,9 +56,11 @@
                             <div class="profile-picture">
                                 <img src="images/<%=session.getAttribute("picture")%>" onclick="openFormprofile()"/>
                             </div>
-                            
+
                             <div class="handle">
-                                <h4><%=session.getAttribute("name")%></h4>
+                                <h4>
+                                    <%=session.getAttribute("name")%>
+                                </h4>
                                 <p class="text-muted">
                                     @<%=session.getAttribute("role")%>
                                 </p>
@@ -75,7 +73,7 @@
                             </a>
                             <a class="menu-item  " href="technology.jsp">
                                 <span><i class="uil uil-robot"></i></span>
-                                <h3>Technologry</h3>
+                                <h3>Technology</h3>
                             </a>
                             <a class="menu-item  " href="art.jsp">
                                 <span><i class="uil uil-palette"></i></span>
@@ -177,7 +175,7 @@
                         </div>
                         <!--end of side bar------------------->
                         <a href="#" onclick="openForm()">
-                            <button class="btn btn-primary" >
+                            <button class="btn btn-primary">
                                 (<%=session.getAttribute("name")%>)
                                     <i class="uil uil-sign-out-alt"></i>
                             </button>
@@ -193,13 +191,18 @@
                                 <form action="#">
                                     <div class="content">
                                         <a href="#" class="profile-picture" onclick="openFormprofile()">
-                                            <img src="images/<%=session.getAttribute("picture")%>" class="profile-picture" alt="profile" />
+                                            <img src="images/<%=session.getAttribute("picture")%>"
+                                            class="profile-picture" alt="profile" />
                                         </a>
                                         <div class="details">
-                                            <p><%=session.getAttribute("name")%></p>
+                                            <p>
+                                                <%=session.getAttribute("name")%>
+                                            </p>
                                             <div class="privacy">
                                                 <i class="fas fa-user-friends"></i>
-                                                <span> <%=session.getAttribute("role")%></span>
+                                                <span>
+                                                    <%=session.getAttribute("role")%>
+                                                </span>
                                                 <i class="fas fa-caret-down"></i>
                                             </div>
                                         </div>
@@ -225,192 +228,197 @@
 
                         <!------------------------------------------>
                         <div class="feeds">
-                    <div class="feed">
-                        <div class="head">
-                            <div class="user">
-                                <a href="#" class="profile-picture" onclick="openFormprofile()">
-                                    <img src="images/profile-1.jpg" class="profile-picture" alt="" />
-                                </a>
-                                <div class="ingo">
-                                    <h2>El Djazair Daily - الجزائر دايلي</h2>
-                                    <small>Bousaada- 1hour Ago </small>
+                            <div class="feed">
+                                <div class="head">
+                                    <div class="user">
+                                        <a href="#" class="profile-picture" onclick="openFormprofile()">
+                                            <img src="images/profile-1.jpg" class="profile-picture" alt="" />
+                                        </a>
+                                        <div class="ingo">
+                                            <h2>El Djazair Daily - الجزائر دايلي</h2>
+                                            <small>Bousaada- 1hour Ago </small>
+                                        </div>
+                                        <span class="edit">
+                                            <i class="uil uil-ellipsis-h"></i>
+                                        </span>
+                                    </div>
+                                    <div class="caption">
+                                        <p><b> مباراة الإياب : يوم الثلاثاء القادم الساعة 20:30 مساءا بتوقيت الجزائر على
+                                                ملعب
+                                                مصطفى تشاكر بالبليدة
+                                                بعد الفوز
+                                            </b><br> <span class="harch-tag">#sport</span>
+                                        </p>
+                                        <div class=" comments text-muted">
+                                            View By 277k Person
+                                        </div>
+                                    </div>
+                                    <div class="photo">
+                                        <img src="images/feed-5.jpg" alt="">
+                                    </div>
+                                    <div class="action-buttons">
+                                        <div class="interaction-buttons">
+                                            <span><i class="uil uil-heart"></i></span>
+                                            <span><i class="uil uil-comment-dots"></i></span>
+                                            <span><i class="uil uil-share-alt"></i></span>
+                                        </div>
+                                        <div class="bookmark">
+                                            <i class="uil uil-bookmark"></i>
+                                        </div>
+                                    </div>
+                                    <div class="liked-by">
+                                        <span><img src="images/profile-8.jpg" alt=""></span>
+                                        <span><img src="images/profile-8.jpg" alt=""></span>
+                                        <span><img src="images/profile-8.jpg" alt=""></span>
+                                        <p>Liked by <b>Feidjel ismail</b> and
+                                            233 other
+                                        </p>
+                                    </div>
                                 </div>
-                                <span class="edit">
-                                    <i class="uil uil-ellipsis-h"></i>
-                                </span>
                             </div>
-                            <div class="caption">
-                                <p><b> مباراة الإياب : يوم الثلاثاء القادم الساعة 20:30 مساءا بتوقيت الجزائر على ملعب
-                                        مصطفى تشاكر بالبليدة
-                                        بعد الفوز
-                                    </b><br> <span class="harch-tag">#sport</span>
-                                </p>
-                                <div class=" comments text-muted">
-                                    View By 277k Person
+                            <div class="feed">
+                                <div class="head">
+                                    <div class="user">
+                                        <a href="#" class="profile-picture" onclick="openFormprofile()">
+                                            <img src="images/profile-1.jpg" class="profile-picture" alt="" />
+                                        </a>
+                                        <div class="ingo">
+                                            <h2>El Djazair Daily - الجزائر دايلي</h2>
+                                            <small>Bousaada- 1hour Ago </small>
+                                        </div>
+                                        <span class="edit">
+                                            <i class="uil uil-ellipsis-h"></i>
+                                        </span>
+                                    </div>
+                                    <div class="caption">
+                                        <p><b>
+                                                🔴بيان جديد للفاف حول مباراة الكاميرون
+                                                التفاصيل:
+                                                https://edd-dz.net/?p=122292 </b><br> <span
+                                                class="harch-tag">#russia</span>
+                                        </p>
+                                        <div class=" comments text-muted">
+                                            View By 277k Person
+                                        </div>
+                                    </div>
+                                    <div class="photo">
+                                        <img src="images/feed-001.jpg" alt="">
+                                    </div>
+                                    <div class="action-buttons">
+                                        <div class="interaction-buttons">
+                                            <span><i class="uil uil-heart"></i></span>
+                                            <span><i class="uil uil-comment-dots"></i></span>
+                                            <span><i class="uil uil-share-alt"></i></span>
+                                        </div>
+                                        <div class="bookmark">
+                                            <i class="uil uil-bookmark"></i>
+                                        </div>
+                                    </div>
+                                    <div class="liked-by">
+                                        <span><img src="images/profile-4.jpg" alt=""></span>
+                                        <span><img src="images/profile-4.jpg" alt=""></span>
+                                        <span><img src="images/profile-4.jpg" alt=""></span>
+                                        <p>Liked by <b>Feidjel ismail</b> and
+                                            233 other
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="photo">
-                                <img src="images/feed-5.jpg" alt="">
-                            </div>
-                            <div class="action-buttons">
-                                <div class="interaction-buttons">
-                                    <span><i class="uil uil-heart"></i></span>
-                                    <span><i class="uil uil-comment-dots"></i></span>
-                                    <span><i class="uil uil-share-alt"></i></span>
+                            <div class="feed">
+                                <div class="head">
+                                    <div class="user">
+                                        <a href="#" class="profile-picture" onclick="openFormprofile()">
+                                            <img src="images/profile-1.jpg" class="profile-picture" alt="" />
+                                        </a>
+                                        <div class="ingo">
+                                            <h2>El Djazair Daily - الجزائر دايلي</h2>
+                                            <small>Bousaada- 1hour Ago </small>
+                                        </div>
+                                        <span class="edit">
+                                            <i class="uil uil-ellipsis-h"></i>
+                                        </span>
+                                    </div>
+                                    <div class="caption">
+                                        <p><b> كريستيانو رونالدو يعلن عن وفاة طفله
+                                                https://edd-dz.net/?p=122287 </b><br> <span
+                                                class="harch-tag">#russia</span>
+                                        </p>
+                                        <div class=" comments text-muted">
+                                            View By 277k Person
+                                        </div>
+                                    </div>
+                                    <div class="photo">
+                                        <img src="images/feed-02.jpg" alt="">
+                                    </div>
+                                    <div class="action-buttons">
+                                        <div class="interaction-buttons">
+                                            <span><i class="uil uil-heart"></i></span>
+                                            <span><i class="uil uil-comment-dots"></i></span>
+                                            <span><i class="uil uil-share-alt"></i></span>
+                                        </div>
+                                        <div class="bookmark">
+                                            <i class="uil uil-bookmark"></i>
+                                        </div>
+                                    </div>
+                                    <div class="liked-by">
+                                        <span><img src="images/profile-4.jpg" alt=""></span>
+                                        <span><img src="images/profile-4.jpg" alt=""></span>
+                                        <span><img src="images/profile-4.jpg" alt=""></span>
+                                        <p>Liked by <b>Feidjel ismail</b> and
+                                            233 other
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="bookmark">
-                                    <i class="uil uil-bookmark"></i>
-                                </div>
                             </div>
-                            <div class="liked-by">
-                                <span><img src="images/profile-8.jpg" alt=""></span>
-                                <span><img src="images/profile-8.jpg" alt=""></span>
-                                <span><img src="images/profile-8.jpg" alt=""></span>
-                                <p>Liked by <b>Feidjel ismail</b> and
-                                    233 other
-                                </p>
+                            <div class="feed">
+                                <div class="head">
+                                    <div class="user">
+                                        <a href="#" class="profile-picture" onclick="openFormprofile()">
+                                            <img src="images/profile-1.jpg" class="profile-picture" alt="" />
+                                        </a>
+                                        <div class="ingo">
+                                            <h2>El Djazair Daily - الجزائر دايلي</h2>
+                                            <small>Bousaada- 1hour Ago </small>
+                                        </div>
+                                        <span class="edit">
+                                            <i class="uil uil-ellipsis-h"></i>
+                                        </span>
+                                    </div>
+                                    <div class="caption">
+                                        <p><b> 🔴الكاف تختار 4 لاعبين ليتنافسوا على جائزة "الأفضل"، في ذهاب ربع نهائي
+                                                مسابقة
+                                                دوري أبطال أفريقيا
+                                                🔴القائمة عرفت تواجد سفيان خذايرية حارس وفاق سطيف </b><br> <span
+                                                class="harch-tag">#russia</span>
+                                        </p>
+                                        <div class=" comments text-muted">
+                                            View By 277k Person
+                                        </div>
+                                    </div>
+                                    <div class="photo">
+                                        <img src="images/feed-03.jpg" alt="">
+                                    </div>
+                                    <div class="action-buttons">
+                                        <div class="interaction-buttons">
+                                            <span><i class="uil uil-heart"></i></span>
+                                            <span><i class="uil uil-comment-dots"></i></span>
+                                            <span><i class="uil uil-share-alt"></i></span>
+                                        </div>
+                                        <div class="bookmark">
+                                            <i class="uil uil-bookmark"></i>
+                                        </div>
+                                    </div>
+                                    <div class="liked-by">
+                                        <span><img src="images/profile-4.jpg" alt=""></span>
+                                        <span><img src="images/profile-4.jpg" alt=""></span>
+                                        <span><img src="images/profile-4.jpg" alt=""></span>
+                                        <p>Liked by <b>Feidjel ismail</b> and
+                                            233 other
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="feed">
-                        <div class="head">
-                            <div class="user">
-                                <a href="#" class="profile-picture" onclick="openFormprofile()">
-                                    <img src="images/profile-1.jpg" class="profile-picture" alt="" />
-                                </a>
-                                <div class="ingo">
-                                    <h2>El Djazair Daily - الجزائر دايلي</h2>
-                                    <small>Bousaada- 1hour Ago </small>
-                                </div>
-                                <span class="edit">
-                                    <i class="uil uil-ellipsis-h"></i>
-                                </span>
-                            </div>
-                            <div class="caption">
-                                <p><b>
-                                        🔴بيان جديد للفاف حول مباراة الكاميرون
-                                        التفاصيل:
-                                        https://edd-dz.net/?p=122292 </b><br> <span class="harch-tag">#russia</span>
-                                </p>
-                                <div class=" comments text-muted">
-                                    View By 277k Person
-                                </div>
-                            </div>
-                            <div class="photo">
-                                <img src="images/feed-001.jpg" alt="">
-                            </div>
-                            <div class="action-buttons">
-                                <div class="interaction-buttons">
-                                    <span><i class="uil uil-heart"></i></span>
-                                    <span><i class="uil uil-comment-dots"></i></span>
-                                    <span><i class="uil uil-share-alt"></i></span>
-                                </div>
-                                <div class="bookmark">
-                                    <i class="uil uil-bookmark"></i>
-                                </div>
-                            </div>
-                            <div class="liked-by">
-                                <span><img src="images/profile-4.jpg" alt=""></span>
-                                <span><img src="images/profile-4.jpg" alt=""></span>
-                                <span><img src="images/profile-4.jpg" alt=""></span>
-                                <p>Liked by <b>Feidjel ismail</b> and
-                                    233 other
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="feed">
-                        <div class="head">
-                            <div class="user">
-                                <a href="#" class="profile-picture" onclick="openFormprofile()">
-                                    <img src="images/profile-1.jpg" class="profile-picture" alt="" />
-                                </a>
-                                <div class="ingo">
-                                    <h2>El Djazair Daily - الجزائر دايلي</h2>
-                                    <small>Bousaada- 1hour Ago </small>
-                                </div>
-                                <span class="edit">
-                                    <i class="uil uil-ellipsis-h"></i>
-                                </span>
-                            </div>
-                            <div class="caption">
-                                <p><b> كريستيانو رونالدو يعلن عن وفاة طفله
-                                        https://edd-dz.net/?p=122287 </b><br> <span class="harch-tag">#russia</span>
-                                </p>
-                                <div class=" comments text-muted">
-                                    View By 277k Person
-                                </div>
-                            </div>
-                            <div class="photo">
-                                <img src="images/feed-02.jpg" alt="">
-                            </div>
-                            <div class="action-buttons">
-                                <div class="interaction-buttons">
-                                    <span><i class="uil uil-heart"></i></span>
-                                    <span><i class="uil uil-comment-dots"></i></span>
-                                    <span><i class="uil uil-share-alt"></i></span>
-                                </div>
-                                <div class="bookmark">
-                                    <i class="uil uil-bookmark"></i>
-                                </div>
-                            </div>
-                            <div class="liked-by">
-                                <span><img src="images/profile-4.jpg" alt=""></span>
-                                <span><img src="images/profile-4.jpg" alt=""></span>
-                                <span><img src="images/profile-4.jpg" alt=""></span>
-                                <p>Liked by <b>Feidjel ismail</b> and
-                                    233 other
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="feed">
-                        <div class="head">
-                            <div class="user">
-                                <a href="#" class="profile-picture" onclick="openFormprofile()">
-                                    <img src="images/profile-1.jpg" class="profile-picture" alt="" />
-                                </a>
-                                <div class="ingo">
-                                    <h2>El Djazair Daily - الجزائر دايلي</h2>
-                                    <small>Bousaada- 1hour Ago </small>
-                                </div>
-                                <span class="edit">
-                                    <i class="uil uil-ellipsis-h"></i>
-                                </span>
-                            </div>
-                            <div class="caption">
-                                <p><b> 🔴الكاف تختار 4 لاعبين ليتنافسوا على جائزة "الأفضل"، في ذهاب ربع نهائي مسابقة
-                                        دوري أبطال أفريقيا
-                                        🔴القائمة عرفت تواجد سفيان خذايرية حارس وفاق سطيف </b><br> <span
-                                        class="harch-tag">#russia</span>
-                                </p>
-                                <div class=" comments text-muted">
-                                    View By 277k Person
-                                </div>
-                            </div>
-                            <div class="photo">
-                                <img src="images/feed-03.jpg" alt="">
-                            </div>
-                            <div class="action-buttons">
-                                <div class="interaction-buttons">
-                                    <span><i class="uil uil-heart"></i></span>
-                                    <span><i class="uil uil-comment-dots"></i></span>
-                                    <span><i class="uil uil-share-alt"></i></span>
-                                </div>
-                                <div class="bookmark">
-                                    <i class="uil uil-bookmark"></i>
-                                </div>
-                            </div>
-                            <div class="liked-by">
-                                <span><img src="images/profile-4.jpg" alt=""></span>
-                                <span><img src="images/profile-4.jpg" alt=""></span>
-                                <span><img src="images/profile-4.jpg" alt=""></span>
-                                <p>Liked by <b>Feidjel ismail</b> and
-                                    233 other
-                                </p>
-                            </div>
-                        </div>
-                    </div>                        </div>
                     </div>
                     <!--right------------------->
                     <div class="right">
@@ -583,11 +591,6 @@
                         </div>
                     </div>
 
-
-
-
-
-
                 </div>
                 </div>
             </main>
@@ -647,16 +650,20 @@
                     </div>
                 </div>
             </div>
+
+            
             <div class="customize-theme" id="profileform">
 
 
                 <div class="profile-card js-profile-card">
                     <div class="profile-card__img">
-                        <img src=" images/<%=session.getAttribute("picture")%>" alt="profile ">
+                        <img src=" images/<%=session.getAttribute(" picture")%>" alt="profile ">
                     </div>
 
                     <div class="profile-card__cnt js-profile-cnt">
-                        <div class="profile-card__name"><%=session.getAttribute("name")%></div>
+                        <div class="profile-card__name">
+                            <%=session.getAttribute("name")%>
+                        </div>
                         <div class="profile-card__txt">Front-end Developer from <strong>Mesopotamia</strong></div>
                         <div class="profile-card-loc">
                             <span class="profile-card-loc__icon">
@@ -778,7 +785,7 @@
 
                 </div>
 
-
+                
 
                 <svg hidden="hidden">
                     <defs>

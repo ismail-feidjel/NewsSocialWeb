@@ -66,7 +66,6 @@ public class usermanagement extends HttpServlet {
 					request.setAttribute("statussea", rs.getString("statuss"));
 					request.setAttribute("displaysearch","table");
 					dispatcher=request.getRequestDispatcher("Analyses.jsp");
-					
 					}else {
 						request.setAttribute("err","there is an err or the user not found");
 						dispatcher =request.getRequestDispatcher("Analyses.jsp");

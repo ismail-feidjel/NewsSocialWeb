@@ -64,7 +64,7 @@
                 </a>
                 <a class="menu-item  " href="Technology.jsp">
                     <span><i class="uil uil-robot"></i></span>
-                    <h3>Technologry</h3>
+                    <h3>Technology</h3>
                 </a>
                 <a class="menu-item  " href="art.jsp">
                     <span><i class="uil uil-palette"></i></span>
@@ -190,7 +190,7 @@
                                     <img src="images/profile-1.jpg" class="profile-picture" alt="" />
                                 </a>
                                 <div class="details">
-                                    <p>ISMAIL FEI</p>
+                                    <p><%=session.getAttribute("name")%></p>
                                     <div class="privacy">
                                         <i class="fas fa-user-friends"></i>
                                         <span>Admin</span>

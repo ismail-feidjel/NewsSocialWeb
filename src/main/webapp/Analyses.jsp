@@ -6,6 +6,15 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <!DOCTYPE html>
 <html lang="en">
 
@@ -89,7 +98,7 @@ cursor: pointer;
                         <span><i class="uil uil-football"></i></span>
                         <h3>Sports</h3>
                     </a>
-                    <a class="menu-item  " href="Technology.jsp">
+                    <a class="menu-item  " href="technology.jsp">
                         <span><i class="uil uil-robot"></i></span>
                         <h3>Technologry</h3>
                     </a>
@@ -508,10 +517,6 @@ cursor: pointer;
 
 
                 </div>
-
-
-
-
             </div>
     </main>
 
