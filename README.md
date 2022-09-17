@@ -8,6 +8,7 @@ Use the package manager [Eclipse IDE ](https://www.eclipse.org/downloads/) to Im
 
 ```bash
 File -> import -> Git -> Paste Link of the Project Code
+install Apatche Tomcat 10 server
 ```
 
 ## Some Screens
